@@ -15,6 +15,71 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
   String resultado = '';
   String accion = '';
 
+  void _calcular(String operacion) {
+    final num1 = double.tryParse(num1Controller.text);
+    final num2 = double.tryParse(num2Controller.text);
+
+    if (num1 == null || num2 == null) {
+      setState(() {
+        resultado = 'ERROR Ingresa números válidos';
+        accion = _getOperacionNombre(operacion);
+      });
+      return;
+    }
+
+    double res = 0;
+    switch (operacion) {
+      case '+':
+        res = num1 + num2;
+        break;
+      case '-':
+        res = num1 - num2;
+        break;
+      case '*':
+        res = num1 * num2;
+        break;
+      case '/':
+        if (num2 == 0) {
+          setState(() {
+            resultado = 'ERROR No se puede dividir por 0';
+            accion = _getOperacionNombre(operacion);
+          });
+          return;
+        }
+        res = num1 / num2;
+        break;
+    }
+
+    setState(() {
+      resultado = res.toStringAsFixed(2);
+      accion = _getOperacionNombre(operacion);
+    });
+  }
+
+  String _getOperacionNombre(String operacion) {
+    switch (operacion) {
+      case '+':
+        return 'Suma';
+      case '-':
+        return 'Resta';
+      case '*':
+        return 'Multiplicación';
+      case '/':
+        return 'División';
+      default:
+        return '';
+    }
+  }
+
+  void _borrar() {
+    setState(() {
+      num1Controller.clear();
+      num2Controller.clear();
+      resultado = '';
+      accion = '';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,17 +152,29 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CalculadoraButton(label: '+', onPressed: () => {}),
-                  CalculadoraButton(label: '-', onPressed: () => {}),
-                  CalculadoraButton(label: '*', onPressed: () => {}),
-                  CalculadoraButton(label: '/', onPressed: () => {}),
+                  CalculadoraButton(
+                    label: '+',
+                    onPressed: () => _calcular('+'),
+                  ),
+                  CalculadoraButton(
+                    label: '-',
+                    onPressed: () => _calcular('-'),
+                  ),
+                  CalculadoraButton(
+                    label: '*',
+                    onPressed: () => _calcular('*'),
+                  ),
+                  CalculadoraButton(
+                    label: '/',
+                    onPressed: () => _calcular('/'),
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
               // Botón Borrar
               SizedBox(
                 width: double.infinity,
-                child: CalculadoraButton(label: 'BORRAR', onPressed: () => {}),
+                child: CalculadoraButton(label: 'BORRAR', onPressed: _borrar),
               ),
             ],
           ),
