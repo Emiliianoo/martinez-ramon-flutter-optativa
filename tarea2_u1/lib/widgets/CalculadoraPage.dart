@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'CalculadoraButton.dart';
+
 class CalculadoraPage extends StatefulWidget {
   const CalculadoraPage({super.key});
 
@@ -85,67 +87,17 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(
-                    onPressed: () => {},
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
-                      ),
-                    ),
-                    child: const Text('+'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () => {},
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
-                      ),
-                    ),
-                    child: const Text('-'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () => {},
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
-                      ),
-                    ),
-                    child: const Text('*'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () => {},
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
-                      ),
-                    ),
-                    child: const Text('/'),
-                  ),
+                  CalculadoraButton(label: '+', onPressed: () => {}),
+                  CalculadoraButton(label: '-', onPressed: () => {}),
+                  CalculadoraButton(label: '*', onPressed: () => {}),
+                  CalculadoraButton(label: '/', onPressed: () => {}),
                 ],
               ),
               const SizedBox(height: 20),
               // Botón Borrar
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => {},
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    backgroundColor: Colors.red,
-                  ),
-                  child: const Text(
-                    'BORRAR',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                child: CalculadoraButton(label: 'BORRAR', onPressed: () => {}),
               ),
             ],
           ),
