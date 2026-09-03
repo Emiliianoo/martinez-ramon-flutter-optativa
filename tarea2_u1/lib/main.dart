@@ -197,6 +197,47 @@ class _MainAppState extends State<MainApp> {
                   labelAction: "CLEAR",
                 ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: ActionButton(
+                      inputIzq: inputIzq,
+                      inputDer: inputDer,
+                      inputRespuesta: inputRespuesta,
+                      labelAction: "+",
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: ActionButton(
+                      inputIzq: inputIzq,
+                      inputDer: inputDer,
+                      inputRespuesta: inputRespuesta,
+                      labelAction: "-",
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: ActionButton(
+                      inputIzq: inputIzq,
+                      inputDer: inputDer,
+                      inputRespuesta: inputRespuesta,
+                      labelAction: "*",
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: ActionButton(
+                      inputIzq: inputIzq,
+                      inputDer: inputDer,
+                      inputRespuesta: inputRespuesta,
+                      labelAction: "/",
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
