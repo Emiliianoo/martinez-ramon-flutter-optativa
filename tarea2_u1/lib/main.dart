@@ -7,15 +7,35 @@ void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    TextEditingController inputIzq = TextEditingController();
-    TextEditingController inputDer = TextEditingController();
-    TextEditingController inputRespuesta = TextEditingController();
+  State<MainApp> createState() => _MainAppState();
+}
 
+class _MainAppState extends State<MainApp> {
+  final TextEditingController inputIzq = TextEditingController();
+  final TextEditingController inputDer = TextEditingController();
+  final TextEditingController inputRespuesta = TextEditingController();
+  late TextEditingController inputSeleccionado;
+
+  @override
+  void initState() {
+    super.initState();
+    inputSeleccionado = inputIzq;
+  }
+
+  @override
+  void dispose() {
+    inputIzq.dispose();
+    inputDer.dispose();
+    inputRespuesta.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -55,25 +75,52 @@ class MainApp extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
+                    child: ElevatedButton(
+                      onPressed: () =>
+                          setState(() => inputSeleccionado = inputIzq),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: inputSeleccionado == inputIzq
+                            ? Colors.green
+                            : null,
+                      ),
+                      child: const Text("Usar input izq"),
+                    ),
+                  ),
+                  const SizedBox(width: 16.0),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () =>
+                          setState(() => inputSeleccionado = inputDer),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: inputSeleccionado == inputDer
+                            ? Colors.green
+                            : null,
+                      ),
+                      child: const Text("Usar input der"),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16.0),
+              Row(
+                children: [
+                  Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "1",
                     ),
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "2",
                     ),
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "3",
                     ),
                   ),
@@ -83,24 +130,21 @@ class MainApp extends StatelessWidget {
                 children: [
                   Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "4",
                     ),
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "5",
                     ),
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "6",
                     ),
                   ),
@@ -110,24 +154,21 @@ class MainApp extends StatelessWidget {
                 children: [
                   Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "7",
                     ),
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "8",
                     ),
                   ),
                   const SizedBox(width: 16.0),
                   Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "9",
                     ),
                   ),
@@ -139,8 +180,7 @@ class MainApp extends StatelessWidget {
                   const SizedBox(width: 16.0),
                   Expanded(
                     child: NumberInput(
-                      input: inputIzq,
-                      input2: inputDer,
+                      input: inputSeleccionado,
                       labelNumber: "0",
                     ),
                   ),

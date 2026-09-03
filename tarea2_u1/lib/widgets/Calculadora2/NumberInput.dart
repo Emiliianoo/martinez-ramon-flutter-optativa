@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 
 class NumberInput extends StatefulWidget {
   final TextEditingController input;
-  final TextEditingController input2;
   final String labelNumber;
 
   const NumberInput({
     super.key,
     required this.input,
-    required this.input2,
     required this.labelNumber,
   });
 
