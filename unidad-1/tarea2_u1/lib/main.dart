@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tarea2_u1/app_theme.dart';
 import 'package:tarea2_u1/widgets/CalculatorPage.dart';
 import 'package:tarea2_u1/widgets/Pantalla2.dart';
+import 'package:tarea2_u1/widgets/Pantalla3.dart';
 
 void main() {
   runApp(const MainApp());
@@ -43,6 +44,18 @@ class MainApp extends StatelessWidget {
                     );
                   },
                   child: const Text("Pantalla 2"),
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Pantalla3(),
+                      ),
+                    );
+                  },
+                  child: const Text("Pantalla 3"),
                 ),
               ],
             ),
