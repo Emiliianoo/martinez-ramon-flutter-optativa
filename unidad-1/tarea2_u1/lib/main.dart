@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarea2_u1/app_theme.dart';
 import 'package:tarea2_u1/widgets/CalculatorPage.dart';
 
 void main() {
@@ -10,6 +11,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const CalculatorPage());
+    return MaterialApp(theme: AppTheme.themeData, home: const CalculatorPage());
   }
 }

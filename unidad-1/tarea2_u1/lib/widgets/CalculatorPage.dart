@@ -33,10 +33,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Calculadora"),
-        backgroundColor: Colors.green,
-      ),
+      appBar: AppBar(title: const Text("Calculadora")),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -121,6 +118,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 ),
               ],
             ),
+            SizedBox(height: 16.0),
             Row(
               children: [
                 Expanded(
@@ -145,6 +143,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 ),
               ],
             ),
+            SizedBox(height: 16.0),
             Row(
               children: [
                 Expanded(
@@ -169,6 +168,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 ),
               ],
             ),
+            SizedBox(height: 16.0),
             Row(
               children: [
                 const Expanded(child: SizedBox(width: 16)),
@@ -183,7 +183,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 const Expanded(child: SizedBox(width: 16)),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 16.0),
             Center(
               child: ActionButton(
                 inputIzq: inputIzq,
@@ -192,6 +192,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 labelAction: "CLEAR",
               ),
             ),
+            SizedBox(height: 16.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
