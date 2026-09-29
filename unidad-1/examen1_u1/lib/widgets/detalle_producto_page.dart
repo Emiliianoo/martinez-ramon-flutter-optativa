@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'productos_page.dart';
+import '../api/product_model.dart';
 
 class DetalleProductoPage extends StatelessWidget {
   const DetalleProductoPage({required this.product, super.key});
