@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'detalle_producto_page.dart';
+
 class Product {
   const Product({
     required this.id,
@@ -111,6 +113,14 @@ class _ProductTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => DetalleProductoPage(product: product),
+          ),
+        );
+      },
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       leading: SizedBox(
         width: 64,
