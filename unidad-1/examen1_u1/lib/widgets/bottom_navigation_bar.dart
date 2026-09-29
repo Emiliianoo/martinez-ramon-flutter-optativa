@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:examen1_u1/widgets/cart_details.dart';
+import 'package:examen1_u1/widgets/carrito_page.dart';
 import 'package:examen1_u1/widgets/productos_page.dart';
 
 class BottomNavigatorBar extends StatefulWidget {
@@ -12,7 +12,7 @@ class BottomNavigatorBar extends StatefulWidget {
 class _BottomNavigatorBarState extends State<BottomNavigatorBar> {
   int currentIndex = 0;
 
-  final List<Widget> screens = const [ProductosPage(), CartDetails()];
+  final List<Widget> screens = const [ProductosPage(), CarritoPage()];
 
   final List<BottomNavigationBarItem> items = const [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
